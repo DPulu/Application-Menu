@@ -1,5 +1,24 @@
 from datetime import datetime
 
+def convertData(weight):
+    return weight / 2.205
+
+
+def getInput():
+    entries = int(input("How many entries are you inputting? "))
+
+    for entry in range(entries):
+        date = input("Enter a date: ")
+        weight = float(input("Enter the weight in pounds for the inputted date: "))
+
+        # Calls convertData with weight as the argument and returns the converted weight in kilograms.
+        converted_weight = convertData(weight)
+
+        print("The following was saved at", datetime.now(), ":")
+        print(date, weight, converted_weight)
+        print()
+
+
 print("Duspul5115 Spreadsheet Automation Menu")
 
 menu_options = [
@@ -15,7 +34,8 @@ for option in menu_options:
 
 choice = input("Enter your selection: ")
 
-if choice == "1" or choice == "2" or choice == "3":
+if choice == "1":
     print("You selected", choice, "at", datetime.now())
+    getInput()
 else:
-    print("Error: Invalid choice selected.")
+    print("Error: The chosen functionality is not implemented yet")
